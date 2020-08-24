@@ -36,26 +36,60 @@ namespace Lab1Track
         public BulletedListText BulletedListText { get; set; }
         public UserText (string InputUserText)
         {
+            string[] SplitUserString;
             if(InputUserText.Contains("<par>"))
             {
+                this.ParagraphText = new ParagraphText();
                 this.ParagraphText.TextOfParagraph = InputUserText.Replace("<par>", "");
             }
             else if (InputUserText.Contains("<Olist>"))
             {
-                this.OrderListText.TextOfOrderList = InputUserText.Replace("<Olist>","");
+                this.OrderListText = new OrderListText();
+                //this.OrderListText.TextOfOrderList = InputUserText.Replace("<Olist>","");
                 while (Console.ReadLine() != null || Console.ReadLine() != "")
                 {
-                    this.OrderListText.TextOfOrderList += Console.ReadLine();
+                    this.OrderListText.TextOfOrderList += string.Concat(",", Console.ReadLine());
                 }
             }
             else if(InputUserText.Contains("<Blist>"))
             {
-                this.BulletedListText.TextOfBulletedList = InputUserText.Replace("<Blist>", "");
+                this.BulletedListText = new BulletedListText();
+                //this.BulletedListText.TextOfBulletedList = InputUserText.Replace("<Blist>", "");
                 while(Console.ReadLine() != null || Console.ReadLine() != "")
                 {
-                    this.BulletedListText.TextOfBulletedList += Console.ReadLine();
+                    this.BulletedListText.TextOfBulletedList += string.Concat(",", Console.ReadLine());
                 }
             }
+            else 
+            {
+                this.HeaderText = new HeaderText();
+                SplitUserString = InputUserText.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                switch(SplitUserString[0])
+                {
+                    case "<Hd1>": 
+                        this.HeaderText.TextOfHeader1 = InputUserText.Replace("<Hd1>", "");
+                        break;
+                    case "<Hd2>":
+                        this.HeaderText.TextOfHeader2 = InputUserText.Replace("<Hd2>", "");
+                        break;
+                    case "<Hd3>":
+                        this.HeaderText.TextOfHeader3 = InputUserText.Replace("<Hd3>", "");
+                        break;
+                    case "<Hd4>":
+                        this.HeaderText.TextOfHeader4 = InputUserText.Replace("<Hd4>", "");
+                        break;
+                    case "<Hd5>":
+                        this.HeaderText.TextOfHeader5 = InputUserText.Replace("<Hd5>", "");
+                        break;
+                    case "<Hd6>":
+                        this.HeaderText.TextOfHeader6 = InputUserText.Replace("<Hd6>", "");
+                        break;
+                    default:Console.WriteLine("Your text format is wrong!");
+                        break;
+
+                }
+            }
+
         }
     }
 }

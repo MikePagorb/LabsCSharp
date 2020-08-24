@@ -35,17 +35,17 @@ namespace Lab1Track
         public Header Header { get; set; }
         public OrderList OrderList { get; set; }
         public BulletedList BulletedList { get; set; }
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
+        //public override string ToString()
+        //{
+        //    StringBuilder sb = new StringBuilder();
 
-            if (Paragraph != null)
-                sb.Append(Paragraph.TypeOfParagraph +);
-            if (Salt != null)
-                sb.Append("Соль \n");
-            if (Additives != null)
-                sb.Append("Добавки: " + Additives.Name + " \n");
-            return sb.ToString();
-        }
+        //    if (Paragraph != null)
+        //        sb.Append(Paragraph.TypeOfParagraph +);
+        //    if (Salt != null)
+        //        sb.Append("Соль \n");
+        //    if (Additives != null)
+        //        sb.Append("Добавки: " + Additives.Name + " \n");
+        //    return sb.ToString();
+        //}
     }
 }
