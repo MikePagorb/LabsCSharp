@@ -21,12 +21,12 @@ namespace Lab1Track
 
     class OrderListText
     {
-        public string TextOfOrderList { get; set; }
+        public string [] TextOfOrderList { get; set; }
     }
 
     class BulletedListText
     {
-        public string TextOfBulletedList { get; set; }
+        public string [] TextOfBulletedList { get; set; }
     }
     class UserText
     {
@@ -48,7 +48,8 @@ namespace Lab1Track
                 //this.OrderListText.TextOfOrderList = InputUserText.Replace("<Olist>","");
                 while (Console.ReadLine() != null || Console.ReadLine() != "")
                 {
-                    this.OrderListText.TextOfOrderList += string.Concat(",", Console.ReadLine());
+                    //this.OrderListText.TextOfOrderList += string.Concat(",", Console.ReadLine());
+                    this.OrderListText.TextOfOrderList = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
                 }
             }
             else if(InputUserText.Contains("<Blist>"))
@@ -57,7 +58,8 @@ namespace Lab1Track
                 //this.BulletedListText.TextOfBulletedList = InputUserText.Replace("<Blist>", "");
                 while(Console.ReadLine() != null || Console.ReadLine() != "")
                 {
-                    this.BulletedListText.TextOfBulletedList += string.Concat(",", Console.ReadLine());
+                    //this.BulletedListText.TextOfBulletedList += string.Concat(",", Console.ReadLine());
+                    this.BulletedListText.TextOfBulletedList = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
                 }
             }
             else 
