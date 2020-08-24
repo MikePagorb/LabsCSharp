@@ -37,7 +37,7 @@ namespace Lab1Track
         public BulletedListText BulletedListText { get; set; }
         public UserText (string InputUserText)
         {
-            while (InputUserText != "quit")
+            while (InputUserText != "translate")
             {
                 string[] SplitUserString;
                 if (InputUserText.Contains("<par>"))

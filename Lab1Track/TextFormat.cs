@@ -42,20 +42,20 @@ namespace Lab1Track
             if (Text.HeaderText != null && Header != null)
             {
                 if (Text.HeaderText.TextOfHeader1 != null)
-                    sb.Append(Header.HeaderFirstLevel + " " + Text.HeaderText.TextOfHeader1 + "\n");
+                    sb.Append(Header.HeaderFirstLevel + " " + Text.HeaderText.TextOfHeader1 + "\n" + "\n");
                 if (Text.HeaderText.TextOfHeader2 != null)
-                    sb.Append(Header.HeaderSecondLevel + " " + Text.HeaderText.TextOfHeader2 + "\n");
+                    sb.Append(Header.HeaderSecondLevel + " " + Text.HeaderText.TextOfHeader2 + "\n" + "\n");
                 if (Text.HeaderText.TextOfHeader3 != null)
-                    sb.Append(Header.HeaderThirdLevel + " " + Text.HeaderText.TextOfHeader3 + "\n");
+                    sb.Append(Header.HeaderThirdLevel + " " + Text.HeaderText.TextOfHeader3 + "\n" + "\n");
                 if (Text.HeaderText.TextOfHeader4 != null)
-                    sb.Append(Header.HeaderFourthLevel + " " + Text.HeaderText.TextOfHeader4 + "\n");
+                    sb.Append(Header.HeaderFourthLevel + " " + Text.HeaderText.TextOfHeader4 + "\n" + "\n");
                 if (Text.HeaderText.TextOfHeader5 != null)
-                    sb.Append(Header.HeaderFifthLevel + " " + Text.HeaderText.TextOfHeader5 + "\n");
+                    sb.Append(Header.HeaderFifthLevel + " " + Text.HeaderText.TextOfHeader5 + "\n" + "\n");
                 if (Text.HeaderText.TextOfHeader6 != null)
-                    sb.Append(Header.HeaderSixthLevel + " " + Text.HeaderText.TextOfHeader6 + "\n");
+                    sb.Append(Header.HeaderSixthLevel + " " + Text.HeaderText.TextOfHeader6 + "\n" + "\n");
             }
             if (Text.ParagraphText != null && Paragraph != null)
-                sb.Append(Paragraph.TypeOfParagraph +" " + Text.ParagraphText.TextOfParagraph + "\n");
+                sb.Append(Paragraph.TypeOfParagraph +" " + Text.ParagraphText.TextOfParagraph + "\n" + "\n");
             if (Text.OrderListText != null && OrderList != null)
             {
                 sb.Append(OrderList.TypeOfOrderList + "\n");
