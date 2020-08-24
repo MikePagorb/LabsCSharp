@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Lab1Track
@@ -36,60 +37,73 @@ namespace Lab1Track
         public BulletedListText BulletedListText { get; set; }
         public UserText (string InputUserText)
         {
-            string[] SplitUserString;
-            if(InputUserText.Contains("<par>"))
+            while (InputUserText != "quit")
             {
-                this.ParagraphText = new ParagraphText();
-                this.ParagraphText.TextOfParagraph = InputUserText.Replace("<par>", "");
-            }
-            else if (InputUserText.Contains("<Olist>"))
-            {
-                this.OrderListText = new OrderListText();
-                //this.OrderListText.TextOfOrderList = InputUserText.Replace("<Olist>","");
-                while (Console.ReadLine() != null || Console.ReadLine() != "")
+                string[] SplitUserString;
+                if (InputUserText.Contains("<par>"))
                 {
-                    //this.OrderListText.TextOfOrderList += string.Concat(",", Console.ReadLine());
-                    this.OrderListText.TextOfOrderList = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                    this.ParagraphText = new ParagraphText();
+                    this.ParagraphText.TextOfParagraph = InputUserText.Replace("<par>", "");
                 }
-            }
-            else if(InputUserText.Contains("<Blist>"))
-            {
-                this.BulletedListText = new BulletedListText();
-                //this.BulletedListText.TextOfBulletedList = InputUserText.Replace("<Blist>", "");
-                while(Console.ReadLine() != null || Console.ReadLine() != "")
+                else if (InputUserText.Contains("<Olist>"))
                 {
-                    //this.BulletedListText.TextOfBulletedList += string.Concat(",", Console.ReadLine());
-                    this.BulletedListText.TextOfBulletedList = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                    this.OrderListText = new OrderListText();
+                    string helpStr = "";
+                    string inputHelper = "";
+                    //this.OrderListText.TextOfOrderList = InputUserText.Replace("<Olist>","");
+                    while (inputHelper != "q")
+                    {
+                        inputHelper = Console.ReadLine();
+                        //this.OrderListText.TextOfOrderList += string.Concat(",", Console.ReadLine());
+                        helpStr += string.Concat(inputHelper, ",");
+                    }
+                    this.OrderListText.TextOfOrderList = helpStr.Split(",");
                 }
-            }
-            else 
-            {
-                this.HeaderText = new HeaderText();
-                SplitUserString = InputUserText.Split(" ", StringSplitOptions.RemoveEmptyEntries);
-                switch(SplitUserString[0])
+                else if (InputUserText.Contains("<Blist>"))
                 {
-                    case "<Hd1>": 
-                        this.HeaderText.TextOfHeader1 = InputUserText.Replace("<Hd1>", "");
-                        break;
-                    case "<Hd2>":
-                        this.HeaderText.TextOfHeader2 = InputUserText.Replace("<Hd2>", "");
-                        break;
-                    case "<Hd3>":
-                        this.HeaderText.TextOfHeader3 = InputUserText.Replace("<Hd3>", "");
-                        break;
-                    case "<Hd4>":
-                        this.HeaderText.TextOfHeader4 = InputUserText.Replace("<Hd4>", "");
-                        break;
-                    case "<Hd5>":
-                        this.HeaderText.TextOfHeader5 = InputUserText.Replace("<Hd5>", "");
-                        break;
-                    case "<Hd6>":
-                        this.HeaderText.TextOfHeader6 = InputUserText.Replace("<Hd6>", "");
-                        break;
-                    default:Console.WriteLine("Your text format is wrong!");
-                        break;
+                    this.BulletedListText = new BulletedListText();
+                    string helpStr = "";
+                    string inputHelper = "";
+                    //this.BulletedListText.TextOfBulletedList = InputUserText.Replace("<Blist>", "");
+                    while (inputHelper != "q")
+                    {
+                        inputHelper = Console.ReadLine();
+                        //this.BulletedListText.TextOfBulletedList += string.Concat(",", Console.ReadLine());
+                        helpStr += string.Concat(inputHelper, ",");
+                    }
+                    this.BulletedListText.TextOfBulletedList = helpStr.Split(",");
+                }
+                else
+                {
+                    this.HeaderText = new HeaderText();
+                    SplitUserString = InputUserText.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                    switch (SplitUserString[0])
+                    {
+                        case "<Hd1>":
+                            this.HeaderText.TextOfHeader1 = InputUserText.Replace("<Hd1>", "");
+                            break;
+                        case "<Hd2>":
+                            this.HeaderText.TextOfHeader2 = InputUserText.Replace("<Hd2>", "");
+                            break;
+                        case "<Hd3>":
+                            this.HeaderText.TextOfHeader3 = InputUserText.Replace("<Hd3>", "");
+                            break;
+                        case "<Hd4>":
+                            this.HeaderText.TextOfHeader4 = InputUserText.Replace("<Hd4>", "");
+                            break;
+                        case "<Hd5>":
+                            this.HeaderText.TextOfHeader5 = InputUserText.Replace("<Hd5>", "");
+                            break;
+                        case "<Hd6>":
+                            this.HeaderText.TextOfHeader6 = InputUserText.Replace("<Hd6>", "");
+                            break;
+                        default:
+                            Console.WriteLine("Your text format is wrong!");
+                            break;
 
+                    }
                 }
+                InputUserText = Console.ReadLine();
             }
 
         }
