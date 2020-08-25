@@ -7,7 +7,7 @@ namespace Lab1Track
 {
     class ParagraphText
     {
-        public string TextOfParagraph { get; set; }
+        public List<string> TextOfParagraph = new List<string>();
     }
     class HeaderText
     {
@@ -46,7 +46,7 @@ namespace Lab1Track
                 if (InputUserText.Contains("<par>"))
                 {
                     //this.ParagraphText = new ParagraphText();
-                    this.ParagraphText.TextOfParagraph = InputUserText.Replace("<par>", "");
+                    this.ParagraphText.TextOfParagraph.Add(InputUserText.Replace("<par>", ""));
                 }
                 else if (InputUserText.Contains("<Olist>"))
                 {

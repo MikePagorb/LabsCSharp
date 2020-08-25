@@ -54,8 +54,13 @@ namespace Lab1Track
                 if (Text.HeaderText.TextOfHeader6 != null)
                     sb.Append(Header.HeaderSixthLevel + " " + Text.HeaderText.TextOfHeader6 + "\n" + "\n");
             }
-            if (Text.ParagraphText.TextOfParagraph != null && Paragraph != null)
-                sb.Append(Paragraph.TypeOfParagraph +" " + Text.ParagraphText.TextOfParagraph + "\n" + "\n");
+            if (Text.ParagraphText != null && Paragraph != null)
+            {
+                foreach (string str in Text.ParagraphText.TextOfParagraph)
+                {
+                    sb.Append(Paragraph.TypeOfParagraph + " " + str+ "\n");
+                }
+            }
             if (Text.OrderListText != null && OrderList != null)
             {
                 sb.Append(OrderList.TypeOfOrderList + "\n");
