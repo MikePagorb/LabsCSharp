@@ -37,12 +37,15 @@ namespace Lab1Track
         public BulletedListText BulletedListText { get; set; }
         public UserText (string InputUserText)
         {
+
+            this.HeaderText = new HeaderText();
+            this.ParagraphText = new ParagraphText();
             while (InputUserText != "translate")
             {
                 string[] SplitUserString;
                 if (InputUserText.Contains("<par>"))
                 {
-                    this.ParagraphText = new ParagraphText();
+                    //this.ParagraphText = new ParagraphText();
                     this.ParagraphText.TextOfParagraph = InputUserText.Replace("<par>", "");
                 }
                 else if (InputUserText.Contains("<Olist>"))
@@ -75,27 +78,27 @@ namespace Lab1Track
                 }
                 else
                 {
-                    this.HeaderText = new HeaderText();
+                    //this.HeaderText = new HeaderText();
                     SplitUserString = InputUserText.Split(" ", StringSplitOptions.RemoveEmptyEntries);
                     switch (SplitUserString[0])
                     {
                         case "<Hd1>":
-                            this.HeaderText.TextOfHeader1 = InputUserText.Replace("<Hd1>", "");
+                            this.HeaderText.TextOfHeader1 += InputUserText.Replace("<Hd1>", "");
                             break;
                         case "<Hd2>":
-                            this.HeaderText.TextOfHeader2 = InputUserText.Replace("<Hd2>", "");
+                            this.HeaderText.TextOfHeader2 += InputUserText.Replace("<Hd2>", "");
                             break;
                         case "<Hd3>":
-                            this.HeaderText.TextOfHeader3 = InputUserText.Replace("<Hd3>", "");
+                            this.HeaderText.TextOfHeader3 += InputUserText.Replace("<Hd3>", "");
                             break;
                         case "<Hd4>":
-                            this.HeaderText.TextOfHeader4 = InputUserText.Replace("<Hd4>", "");
+                            this.HeaderText.TextOfHeader4 += InputUserText.Replace("<Hd4>", "");
                             break;
                         case "<Hd5>":
-                            this.HeaderText.TextOfHeader5 = InputUserText.Replace("<Hd5>", "");
+                            this.HeaderText.TextOfHeader5 += InputUserText.Replace("<Hd5>", "");
                             break;
                         case "<Hd6>":
-                            this.HeaderText.TextOfHeader6 = InputUserText.Replace("<Hd6>", "");
+                            this.HeaderText.TextOfHeader6 += InputUserText.Replace("<Hd6>", "");
                             break;
                         default:
                             Console.WriteLine("Your text format is wrong!");
