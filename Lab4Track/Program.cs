@@ -13,7 +13,7 @@ namespace Lab4Track
             var products = Data.products;
             var dishes = Data.dishes;
             var menus = Data.menus;
-            Console.WriteLine("Initialized");
+            Console.WriteLine("Initialize");
 
             Console.WriteLine("1)List of all menus:");
 
