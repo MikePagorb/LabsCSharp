@@ -28,6 +28,7 @@ namespace Lab2Track
                 ui.Input();
                 translator.TranslateWord(Console.ReadLine(), spliter.SplitDictionary(dictionary.ReadDictionary()));
             }
+            Console.WriteLine();
         }
 
         public void AddTranslateToDictionary()
@@ -39,6 +40,7 @@ namespace Lab2Track
                 ui.AddWordUi();
                 dictionary.AddNewWordsToDictionary();
             }
+            Console.WriteLine();
         }
 
         public void ShowAllWords()
@@ -50,6 +52,7 @@ namespace Lab2Track
                 ui.AllWordsUi();
                 Console.WriteLine(dictionary.ReadDictionary());
             }
+            Console.WriteLine();
         }
     }
 }

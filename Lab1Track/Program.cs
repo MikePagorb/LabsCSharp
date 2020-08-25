@@ -20,6 +20,7 @@ namespace Lab1Track
             FormatBuilder builderHTML = new HTMLFormatBuilder();
             TextFormat textFormatHTML = formatDirector.CreateFormatingText(builderHTML);
             Console.WriteLine();
+            Console.WriteLine("Перевод в HTML: \n");
             Console.WriteLine(textFormatHTML.ToString());
 
             Console.WriteLine();
@@ -28,6 +29,7 @@ namespace Lab1Track
             FormatBuilder builderMark = new MarkdownFormatBuilder();
             TextFormat textFormatMark = formatDirector.CreateFormatingText(builderMark);
             Console.WriteLine();
+            Console.WriteLine("Перевод в Markdown: \n");
             Console.WriteLine(textFormatMark.ToString());
 
         }
