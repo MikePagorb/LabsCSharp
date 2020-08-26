@@ -26,8 +26,8 @@ namespace Lab4Track
             }
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine("2) All products, that have >30 calories");
-            var calories_result = products.Where(p => p.Calories > 30);
-            foreach (var product in calories_result)
+            var caloriesResult = products.Where(p => p.Calories > 30);
+            foreach (var product in caloriesResult)
             {
                 Console.WriteLine($"Product {product.Name} with {product.Calories} calories");
             }
@@ -48,52 +48,52 @@ namespace Lab4Track
             Console.WriteLine("----------------------------------------------------");
 
             Console.WriteLine("4) Products, ordered by Calories");
-            var result_order_calories = products.OrderBy(p => p.Calories);
-            foreach (var product in result_order_calories)
+            var resultOrderCalories = products.OrderBy(p => p.Calories);
+            foreach (var product in resultOrderCalories)
             {
                 Console.WriteLine($"Product {product.Name} Calories : {product.Calories}");
             }
             Console.WriteLine("----------------------------------------------------");
 
             Console.WriteLine("5) Products, contains 'a'");
-            var result_a = products.Where(p => p.Name.Contains("a"));
-            foreach (var product in result_a)
+            var resultA = products.Where(p => p.Name.Contains("a"));
+            foreach (var product in resultA)
             {
                 Console.WriteLine($"Product {product.Name} Calories : {product.Calories}");
             }
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine("6) All dishes, where one product contains 'a'");
-            var result_cotains_a = dishes.Where(d => d.Products.Any(p => p.Name.Contains("a")));
-            foreach (var dish in result_cotains_a)
+            var resultCotainsA = dishes.Where(d => d.Products.Any(p => p.Name.Contains("a")));
+            foreach (var dish in resultCotainsA)
             {
                 Console.WriteLine($"Dish {dish.Name}, Products {string.Join(",", dish.Products)}");
             }
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine("7) All dishes, grouped by products count");
-            var result_grouped = dishes.GroupBy(d => d.Products.Count);
-            foreach (var dish in result_grouped)
+            var resultGrouped = dishes.GroupBy(d => d.Products.Count);
+            foreach (var dish in resultGrouped)
             {
                 Console.WriteLine($"{dish.Key}: \n {string.Join("\n", dish)}");
             }
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine("8) Sum product for each menu");
-            var result_sum = menus.Select(m => new { Menu = m.Date, Sum = m.Prices.Values.Sum() });
-            foreach (var menu in result_sum)
+            var resultSum = menus.Select(m => new { Menu = m.Date, Sum = m.Prices.Values.Sum() });
+            foreach (var menu in resultSum)
             {
                 Console.WriteLine($"{menu.Menu}: {menu.Sum}");
             }
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine("9) All menus, that contains eggs");
-            var result_contains = menus.Where(m => m.Dishes.Any(p => p.Products.Any(p => p.Name == "Egg")));
-            foreach (var menu in result_contains)
+            var resultContains = menus.Where(m => m.Dishes.Any(p => p.Products.Any(p => p.Name == "Egg")));
+            foreach (var menu in resultContains)
             {
                 Console.WriteLine($"Menu from date : {menu.Date}");
             }
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine("10) All menus grouped by date");
-            var result_date = from menu in menus
+            var resultDate = from menu in menus
                               group menu by menu.Date;
-            foreach (var menu in result_date)
+            foreach (var menu in resultDate)
             {
                 Console.WriteLine($"{menu.Key} Count : {menu.Count()}");
             }
@@ -107,31 +107,31 @@ namespace Lab4Track
 
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine("12) All dishes and number of products");
-            var result_numbers = from d in dishes
+            var resultNumbers = from d in dishes
                                  select new { Name = d.Name, Count = d.Products.Count };
-            foreach (var dish in result_numbers)
+            foreach (var dish in resultNumbers)
             {
                 Console.WriteLine($"Dish {dish.Name} Count {dish.Count}");
             }
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine("13) All dishes, where sum of calories < 150");
-            var calories_res = dishes.Where(d => d.Products.Select(p => p.Calories).Sum() < 150).Select(p => new { Name = p.Name, Sum = p.Products.Select(p => p.Calories).Sum() });
+            var caloriesRes = dishes.Where(d => d.Products.Select(p => p.Calories).Sum() < 150).Select(p => new { Name = p.Name, Sum = p.Products.Select(p => p.Calories).Sum() });
 
-            foreach (var dish in calories_res)
+            foreach (var dish in caloriesRes)
             {
                 Console.WriteLine($"Dish {dish.Name} Calories {dish.Sum}");
             }
 
-            Console.WriteLine("14) All menus, where sum < 140");
-            var result_sum_all = menus.Select(m => new { Menu = m.Date, Sum = m.Prices.Values.Sum() }).Where(m => m.Sum < 140);
-            foreach (var menu in result_sum)
+            Console.WriteLine("14) All menus, where sum > 440");
+            var resultSumAll = menus.Select(m => new { Menu = m.Date, Sum = m.Prices.Values.Sum() }).Where(m => m.Sum > 440);
+            foreach (var menu in resultSumAll)
             {
                 Console.WriteLine($"{menu.Menu}: {menu.Sum}");
             }
             Console.WriteLine("15) Products and dishes, where it is");
-            var products_result = products.Select(p => new
+            var productsResult = products.Select(p => new
             { Producs = p.Name, Dishes = dishes.Where(d => d.Products.Contains(p)) });
-            foreach (var product in products_result)
+            foreach (var product in productsResult)
             {
                 Console.WriteLine($"Product {product.Producs} in {string.Join(",", product.Dishes.Select(d => d.Name))} dishes\n");
             }
